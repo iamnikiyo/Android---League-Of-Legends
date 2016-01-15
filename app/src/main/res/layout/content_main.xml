@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main" tools:context=".MainActivity"
+    android:background="@android:color/darker_gray"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="false"
+            android:id="@+id/linearLayout"
+            android:layout_weight="0.20">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="App Name"
+                android:id="@+id/appNameTittle"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:textSize="40dp"
+                android:layout_alignBaseline="@+id/button"
+                android:layout_alignBottom="@+id/button"
+                android:layout_centerHorizontal="true"
+                android:autoText="false"
+
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Summoner Info"
+            android:id="@+id/buttonSummoner"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16dp"
+            android:onClick=""
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:text="Champion INFO"
+            android:id="@+id/infoChampion"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
