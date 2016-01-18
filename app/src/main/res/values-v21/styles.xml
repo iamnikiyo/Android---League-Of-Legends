@@ -25,4 +25,7 @@
 
 
     </style>
+    <style name="AppTheme.PopupOverlay"/>
+    <style name="AppTheme.AppBarOverlay"/>
+
 </resources>
