@@ -63,18 +63,15 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
 
         try {
             String nombre = summonerName.getText().toString();
-            Summoner e = new Summoner(nombre);
+            String server = "euw";
+            Summoner e = new Summoner(nombre,server);
             title.setText(e.getName());
-            idSummoner.setText("ID: " +e.id.toString());
+            idSummoner.setText("ID: " +e.getId().toString());
             summonerLevel.setText("Nivel: " +e.getSummonerLevel().toString());
             summonerIcon.setText("Icono: " +e.getSummonerLevel().toString());
         } catch (IOException e1) {
             e1.printStackTrace();
-        } catch (JSONException e1) {
-            e1.printStackTrace();
         }
-
-
 
 
     }

@@ -1,14 +1,16 @@
 package com.games;
 
-import com.connection.Connection;
-import com.global.Global;
-import com.summoner.Summoner;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.util.Log;
 
 import java.io.IOException;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.connection.Connection;
+import com.global.*;
+import com.summoner.*;
+import org.json.JSONException;
 
 public class Games {
 	// variables
@@ -19,12 +21,12 @@ public class Games {
 	private JSONObject json;
 	
 	
-	public Games(String name, String opcion)throws IOException,JSONException{
-		recogeDatos(calculaTipo(opcion,name));
+	public Games(String name, String opcion,String server)throws IOException{
+		recogeDatos(calculaTipo(opcion,name,server));
 		
 	}
-	private void recogeDatos(int numero) throws IOException,JSONException {
-		
+	private void recogeDatos(int numero) throws IOException { 
+		try{
 		this.wins = json.getJSONArray("playerStatSummaries").getJSONObject(numero).getInt("wins");
 		this.playerStatSummaryType = json.getJSONArray("playerStatSummaries").getJSONObject(numero).getString("playerStatSummaryType");
 		this.modifyDate = json.getJSONArray("playerStatSummaries").getJSONObject(numero).getLong("modifyDate");
@@ -63,11 +65,15 @@ public class Games {
 		}catch(JSONException a){
 			System.out.println(a.getMessage());
 		}
+		}catch(JSONException e) {
+			Log.d("ERROR","JSON");}
 	}
+
 	
-	private int calculaTipo(String opcion,String name)throws IOException,JSONException{
-		Summoner summoner = new Summoner(name);
+	private int calculaTipo(String opcion,String name,String server)throws IOException{
+		Summoner summoner = new Summoner(name,server);
 		String url ="https://euw.api.pvp.net/api/lol/euw/"+version+"/stats/by-summoner/"+summoner.getId()+"/summary?season=SEASON2015&api_key="+Global.key;
+		try{
 		this.json = Connection.readJsonFromUrl(url);
 		JSONArray array = json.getJSONArray("playerStatSummaries");	
 		
@@ -77,8 +83,10 @@ public class Games {
 				return i;
 			}
 		} 
+
+		}catch(JSONException e) {
+			Log.d("ERROR","JSON");}
 		return -1;
-		
 	}
 	public int getWins() {
 		return wins;
