@@ -28,7 +28,7 @@
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name=".pruebaMasteries"
+            android:name=".Masteries"
             android:label="@string/title_activity_prueba_masteries"
             android:theme="@style/AppTheme" >
         </activity>
