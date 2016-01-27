@@ -10,14 +10,28 @@
     tools:showIn="@layout/activity_prueba_masteries"
     tools:context="bynikiyo.sdowlol.Masteries">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView" >
+    <ViewFlipper
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewFlipper"
 
-        <ImageView
+        >
+
+        <include
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView" />
-    </ScrollView>
+            layout="@layout/masterie_redb" />
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/masterie_blueb" />
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/masterie_greenb" />
+
+    </ViewFlipper>
+
 </RelativeLayout>
