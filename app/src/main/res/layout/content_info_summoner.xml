@@ -16,7 +16,8 @@
         android:layout_alignParentStart="false"
         android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:visibility="invisible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -79,36 +80,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/vista">
+        android:id="@+id/vista"
+        android:visibility="visible">
 
-        <TextView
+        <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/titulo"
-            android:layout_gravity="center_horizontal"
-            android:textSize="45dp"
-
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/summonerId"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/summonerProfileIcon"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/summonerLevel"
-            android:textSize="20dp"
-
-            />
-
+            android:id="@+id/listView" />
     </LinearLayout>
 
 </RelativeLayout>

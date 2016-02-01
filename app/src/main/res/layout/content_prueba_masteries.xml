@@ -10,12 +10,17 @@
     tools:showIn="@layout/activity_prueba_masteries"
     tools:context="bynikiyo.sdowlol.Masteries">
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView2" />
+
     <ViewFlipper
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/viewFlipper"
 
-        >
+        android:visibility="invisible">
 
         <include
             android:layout_width="wrap_content"

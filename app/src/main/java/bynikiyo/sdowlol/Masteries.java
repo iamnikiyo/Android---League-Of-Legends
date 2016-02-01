@@ -55,6 +55,13 @@ public class Masteries extends AppCompatActivity {
         ImageView feast = (ImageView) findViewById(R.id.feast);
         ImageView vampirism = (ImageView) findViewById(R.id.vampirism);
         ImageView naturalTalent = (ImageView) findViewById(R.id.naturalTalent);
+        ImageView bBlow = (ImageView) findViewById(R.id.Bblow);
+        ImageView piercing = (ImageView) findViewById(R.id.Pircing);
+        ImageView warlord = (ImageView) findViewById(R.id.warlord);
+        ImageView fervor = (ImageView) findViewById(R.id.fervor);
+        ImageView deadTouch = (ImageView) findViewById(R.id.deadTouch);
+
+
 
 
         fury.setImageResource(R.drawable.m_gray_6111);
@@ -63,6 +70,12 @@ public class Masteries extends AppCompatActivity {
         feast.setImageResource(R.drawable.m_gray_6122);
         vampirism.setImageResource(R.drawable.m_gray_6131);
         naturalTalent.setImageResource(R.drawable.m_gray_6134);
+        bBlow.setImageResource(R.drawable.m_gray_6151);
+        piercing.setImageResource(R.drawable.m_gray_6154);
+        warlord.setImageResource(R.drawable.m_gray_6161);
+        fervor.setImageResource(R.drawable.m_gray_6162);
+        deadTouch.setImageResource(R.drawable.m_gray_6164);
+
     }
     }
 
