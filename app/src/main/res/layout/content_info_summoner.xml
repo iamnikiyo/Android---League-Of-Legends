@@ -17,7 +17,7 @@
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"

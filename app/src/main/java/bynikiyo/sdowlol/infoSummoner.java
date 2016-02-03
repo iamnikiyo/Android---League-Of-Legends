@@ -1,5 +1,6 @@
 package bynikiyo.sdowlol;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import java.util.Map;
 import net.rithms.riot.constant.Region;
@@ -55,7 +57,7 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
             View vista = (View) findViewById(R.id.vista);
             vista.setVisibility(View.VISIBLE);
             buttonMasteries = (Button) findViewById(R.id.buttonMasteries);
-
+            ListView lista = (ListView) findViewById(R.id.listView);
             // Obtencion de los datos
 
 
@@ -72,6 +74,8 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
             }
             Summoner summoner = summoners.get(summonerName.getText().toString());
 
+            listData listaDatos = new listData();
+            lista = listaDatos.getLista(summoner.getDataString());
 
             buttonMasteries.setOnClickListener(this);
         }// Fin envioClick
