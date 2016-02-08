@@ -1,6 +1,6 @@
 # Android---League-Of-Legends
 
-* It is a personal project made by me for learn about Android.
+* This project is a personal project made by me for learn about Android.
 * This is created by a student, which may use methods which are not suitable for doing things.
 * You can always bring your vision of how.
 

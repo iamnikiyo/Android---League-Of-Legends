@@ -4,4 +4,5 @@
     <string name="title_activity_info_summoner">infoSummoner</string>
     <string name="name">Ej: Kronen</string>
     <string name="title_activity_prueba_masteries">pruebaMasteries</string>
+    <string name="title_activity_masteries_list">masteries_list</string>
 </resources>

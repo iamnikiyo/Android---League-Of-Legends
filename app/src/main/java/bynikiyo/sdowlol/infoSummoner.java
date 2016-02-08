@@ -40,7 +40,7 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
     private Toolbar myToolbar;
     private Spinner region;
     private String reg;
-
+    private Summoner summoner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,7 +155,7 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
             } catch (RiotApiException e) {
                 e.printStackTrace();
             }
-                Summoner summoner = null;
+                summoner = null;
             try {
                 summoner = summoners.get(summonerName.getText().toString());
 
@@ -180,8 +180,8 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
 
         if(v.getId() == R.id.buttonMasteries){
             //Define la actividad
-            Intent i = new Intent(this, Masteries.class);
-
+            Intent i = new Intent(this, masteries_list.class);
+                    i.putExtra("summoner",summoner);
             //Inicia la actividad
             startActivity(i);
 
