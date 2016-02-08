@@ -181,7 +181,9 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.buttonMasteries){
             //Define la actividad
             Intent i = new Intent(this, masteries_list.class);
-                    i.putExtra("summoner",summoner);
+                   // i.putExtra("summonerName",summoner.getName());
+                    i.putExtra("summonerName",summonerName.getText().toString());
+                    i.putExtra("region",reg);
             //Inicia la actividad
             startActivity(i);
 
