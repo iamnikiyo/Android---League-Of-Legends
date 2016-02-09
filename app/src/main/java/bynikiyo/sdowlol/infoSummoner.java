@@ -37,10 +37,11 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
     private View horizontalButtons;
     private ListView lista;
     private ArrayAdapter<String> adaptador;
-    private Toolbar myToolbar;
+
     private Spinner region;
     private String reg;
     private Summoner summoner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +54,12 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
         /**
          * Setting toolbar name on create
          */
-        myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setTitle("Info Summoner");
 
+
+
+
+
+        getSupportActionBar().setTitle("Information of Summoner");
         /**
          * Setting region spinner options
          */
@@ -96,7 +100,7 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
             vista.setVisibility(View.VISIBLE);
             buttonMasteries = (Button) findViewById(R.id.buttonMasteries);
             lista = (ListView) findViewById(R.id.listView);
-            myToolbar = (Toolbar) findViewById(R.id.toolbar);
+
             region.setVisibility(View.INVISIBLE);
             regionText = (TextView) findViewById(R.id.RegionText);
             regionText.setVisibility(View.INVISIBLE);
@@ -169,7 +173,7 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
             adaptador=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, summoner.getDataString());
 
             lista.setAdapter(adaptador);
-            myToolbar.setTitle(summoner.getName());
+            getSupportActionBar().setTitle(summoner.getName());
             }catch (NullPointerException e){
                 AlertDialog alerta = new AlertDialog.Builder(this).create();
                 alerta.setTitle("Error");

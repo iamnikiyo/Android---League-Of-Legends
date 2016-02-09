@@ -16,6 +16,8 @@ package net.rithms.riot.dto.Summoner;
  * limitations under the License.
  */
 
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.util.List;
 
