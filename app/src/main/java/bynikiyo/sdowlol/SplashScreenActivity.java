@@ -5,13 +5,17 @@ import java.util.TimerTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 
 public class SplashScreenActivity extends Activity {
 
     // Set the duration of the splash screen
-    private static final long SPLASH_SCREEN_DELAY = 6000;
+    private static final long SPLASH_SCREEN_DELAY = 8000;
+    private ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,7 @@ public class SplashScreenActivity extends Activity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // Hide title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
 
         setContentView(R.layout.splash_screen);
 
@@ -39,7 +44,16 @@ public class SplashScreenActivity extends Activity {
             }
         };
 
-        // Simulate a long loading process on application startup.
+        img = (ImageView) findViewById(R.id.loading);
+        //img.setImageResource(R.drawable.loading);
+        img.setBackgroundResource(R.drawable.loading);
+        // Get the background, which has been compiled to an AnimationDrawable object.
+        AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
+
+        // Start the animation (looped playback by default).
+        frameAnimation.start();
+
+        // Simulate a long animation_list process on application startup.
         Timer timer = new Timer();
         timer.schedule(task, SPLASH_SCREEN_DELAY);
     }
