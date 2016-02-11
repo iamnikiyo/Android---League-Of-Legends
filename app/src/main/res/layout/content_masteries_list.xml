@@ -15,4 +15,28 @@
         android:id="@+id/listNames"
         android:scrollbars="vertical"
         />
+
+    <ViewFlipper
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewFlipper"
+
+        android:visibility="invisible">
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/masterie_redb" />
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/masterie_blueb" />
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/masterie_greenb" />
+
+    </ViewFlipper>
 </RelativeLayout>

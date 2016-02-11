@@ -27,11 +27,6 @@
             android:label="@string/title_activity_info_summoner"
             android:theme="@style/AppTheme" >
         </activity>
-        <activity
-            android:name=".Masteries"
-            android:label="@string/title_activity_prueba_masteries"
-            android:theme="@style/AppTheme" >
-        </activity>
         <activity android:name=".MainActivity" >
         </activity>
         <activity
