@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:visibility="visible"
     android:baselineAligned="false"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:orientation="horizontal">
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
         android:stretchColumns="3"
         android:background="@drawable/m_redb"
         android:padding="20dp"
@@ -34,13 +33,17 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/fury"
                     android:layout_column="0"
-                    android:layout_marginRight="80dp" />
+                    android:layout_marginRight="80dp"
+
+                    />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/sorcery"
-                    android:layout_column="3" />
+                    android:layout_column="3"
+
+                    />
             </LinearLayout>
 
         </TableRow>
@@ -103,6 +106,37 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/naturalTalent"
+                    android:layout_column="3" />
+            </LinearLayout>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bHunter"
+                    android:layout_column="0"
+                    android:layout_marginRight="30dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/opresor"
                     android:layout_column="3" />
             </LinearLayout>
 

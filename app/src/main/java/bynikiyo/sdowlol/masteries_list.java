@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,6 +23,7 @@ import net.rithms.riot.dto.Summoner.MasteryPages;
 import net.rithms.riot.dto.Summoner.Summoner;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -38,7 +40,7 @@ public class masteries_list extends AppCompatActivity {
         private MasteryPages p;
         private Set<MasteryPage> pages;
         private float init_x;
-
+        private Map mapaMaestrias;
 
 
     @Override
@@ -59,9 +61,155 @@ public class masteries_list extends AppCompatActivity {
          * Setting toolbar title
          */
         getSupportActionBar().setTitle("Mastery Pages");
+
+
+
+        getListName();
+
+        listaAndroid = (ListView) findViewById(R.id.listNames);
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,listName);
+        listaAndroid.setAdapter(adapter);
+        listaAndroid.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                String value = (String)adapter.getItem(position);
+                List<Mastery> lm = getListMastery(value);
+                initializeImagesView();
+                for(Mastery m:lm){
+                    String nombreImagen = "m_" +String.valueOf(m.getId());
+                    int res_imagen = masteries_list.this.getResources().getIdentifier("drawable/" + nombreImagen, null, masteries_list.this.getPackageName());
+
+                   try {
+                       getMasteryImageView(m.getId()).setImageResource(res_imagen);
+                   }catch (NullPointerException ex){
+                       ex.printStackTrace();
+
+                   }
+
+                }
+                //------------------------------------------------------------------------
+
+                flipper.setVisibility(View.VISIBLE);
+
+                flipper.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+
+                        switch (event.getAction()) {
+
+                            case MotionEvent.ACTION_DOWN:
+                                init_x = event.getX();
+                                return true;
+                            case MotionEvent.ACTION_UP:
+                                float distance = init_x - event.getX();
+
+                                if (distance < 0) {
+
+                                    flipper.showPrevious();
+                                }
+
+                                if (distance > 0) {
+
+                                    flipper.showNext();
+                                }
+                            default:
+                                break;
+                        }
+
+
+                        return false;
+                    }
+                });
+
+
+            }
+
+                //-------------------
+
+
+
+
+
+
+    });
+
+}
+
+    public List<Mastery> getListMastery(String value){
+        List<Mastery> masteries;
+        for(MasteryPage e: pages){
+            if(e.getName().equalsIgnoreCase(value)){
+                 masteries = e.getMasteries();
+                return masteries;
+            }
+        }
+        return null;
+
+    }
+
+    public void initializeImagesView(){
+
+        ImageView m6111 = (ImageView) findViewById(R.id.fury);
+        ImageView m6114 = (ImageView) findViewById(R.id.sorcery);
+        ImageView m6121 = (ImageView) findViewById(R.id.dobleSword);
+        ImageView m6122 = (ImageView) findViewById(R.id.feast);
+        ImageView m6131 = (ImageView) findViewById(R.id.vampirism);
+        ImageView m6134 = (ImageView) findViewById(R.id.naturalTalent);
+        ImageView m6141 = (ImageView) findViewById(R.id.bHunter);
+        ImageView m6142 = (ImageView) findViewById(R.id.opresor);
+        ImageView m6151 = (ImageView) findViewById(R.id.Bblow);
+        ImageView m6154 = (ImageView) findViewById(R.id.Pircing);
+        ImageView m6161 = (ImageView) findViewById(R.id.warlord);
+        ImageView m6162 = (ImageView) findViewById(R.id.fervor);
+        ImageView m6164 = (ImageView) findViewById(R.id.deadTouch);
+
+        mapaMaestrias = new HashMap();
+
+        mapaMaestrias.put(6111,m6111);
+        mapaMaestrias.put(6114,m6114);
+        mapaMaestrias.put(6121,m6121);
+        mapaMaestrias.put(6122,m6122);
+        mapaMaestrias.put(6131,m6131);
+        mapaMaestrias.put(6134,m6134);
+        mapaMaestrias.put(6141,m6141);
+        mapaMaestrias.put(6142,m6142);
+        mapaMaestrias.put(6151,m6151);
+        mapaMaestrias.put(6154,m6154);
+        mapaMaestrias.put(6161,m6161);
+        mapaMaestrias.put(6162,m6162);
+        mapaMaestrias.put(6164,m6164);
+
+
+
+
+
+        m6111.setImageResource(R.drawable.m_gray_6111);
+        m6114.setImageResource(R.drawable.m_gray_6114);
+        m6121.setImageResource(R.drawable.m_gray_6121);
+        m6122.setImageResource(R.drawable.m_gray_6122);
+        m6131.setImageResource(R.drawable.m_gray_6131);
+        m6134.setImageResource(R.drawable.m_gray_6134);
+        m6141.setImageResource(R.drawable.m_gray_6141);
+        m6142.setImageResource(R.drawable.m_gray_6142);
+        m6151.setImageResource(R.drawable.m_gray_6151);
+        m6154.setImageResource(R.drawable.m_gray_6154);
+        m6161.setImageResource(R.drawable.m_gray_6161);
+        m6162.setImageResource(R.drawable.m_gray_6162);
+        m6164.setImageResource(R.drawable.m_gray_6164);
+
+    }
+
+    ImageView getMasteryImageView(int number){
+
+        return (ImageView) mapaMaestrias.get(number);
+
+    }
+    public void getListName(){
         /**
          * Setting my RiotApi key.
          */
+
         RiotApi api = new RiotApi("64a3b34b-e65d-4867-adb6-47e33cf2dfc3");
         java.util.Map<String, Summoner> summoners = null;
 
@@ -71,8 +219,8 @@ public class masteries_list extends AppCompatActivity {
                 case "EUW":
                     summoners = api.getSummonersByName(Region.EUW, summonerName);
                     summoner = summoners.get(summonerName);
-                     p = api.getMasteryPages(Region.EUW, summoner.getId());
-                     pages = p.getPages();
+                    p = api.getMasteryPages(Region.EUW, summoner.getId());
+                    pages = p.getPages();
 
                     for(MasteryPage e : pages){
                         listName.add(e.getName());
@@ -200,110 +348,7 @@ public class masteries_list extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        listaAndroid = (ListView) findViewById(R.id.listNames);
 
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,listName);
-
-        listaAndroid.setAdapter(adapter);
-
-
-        listaAndroid.setOnItemClickListener(new OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-
-                String value = (String)adapter.getItem(position);
-                List<Mastery> lm = getListMastery(value);
-
-                //------------------------------------------------------------------------
-
-                flipper.setVisibility(View.VISIBLE);
-                flipper.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-
-                        switch (event.getAction()) {
-
-                            case MotionEvent.ACTION_DOWN:
-                                init_x = event.getX();
-                                return true;
-                            case MotionEvent.ACTION_UP:
-                                float distance = init_x - event.getX();
-
-                                if (distance < 0) {
-
-                                    flipper.showPrevious();
-                                }
-
-                                if (distance > 0) {
-
-                                    flipper.showNext();
-                                }
-                            default:
-                                break;
-                        }
-
-
-                        return false;
-                    }
-                });
-
-
-                /**
-                 * retrieving masterie namePage from the masteries_list activity
-                 */
-
-
-
-                ImageView fury = (ImageView) findViewById(R.id.fury);
-                ImageView sorcery = (ImageView) findViewById(R.id.sorcery);
-                ImageView dobleSword = (ImageView) findViewById(R.id.dobleSword);
-                ImageView feast = (ImageView) findViewById(R.id.feast);
-                ImageView vampirism = (ImageView) findViewById(R.id.vampirism);
-                ImageView naturalTalent = (ImageView) findViewById(R.id.naturalTalent);
-                ImageView bBlow = (ImageView) findViewById(R.id.Bblow);
-                ImageView piercing = (ImageView) findViewById(R.id.Pircing);
-                ImageView warlord = (ImageView) findViewById(R.id.warlord);
-                ImageView fervor = (ImageView) findViewById(R.id.fervor);
-                ImageView deadTouch = (ImageView) findViewById(R.id.deadTouch);
-
-
-                /**
-                 * Gray masteries load
-                 */
-                fury.setImageResource(R.drawable.m_gray_6111);
-                sorcery.setImageResource(R.drawable.m_gray_6114);
-                dobleSword.setImageResource(R.drawable.m_gray_6121);
-                feast.setImageResource(R.drawable.m_gray_6122);
-                vampirism.setImageResource(R.drawable.m_gray_6131);
-                naturalTalent.setImageResource(R.drawable.m_gray_6134);
-                bBlow.setImageResource(R.drawable.m_gray_6151);
-                piercing.setImageResource(R.drawable.m_gray_6154);
-                warlord.setImageResource(R.drawable.m_gray_6161);
-                fervor.setImageResource(R.drawable.m_gray_6162);
-                deadTouch.setImageResource(R.drawable.m_gray_6164);
-
-            }
-
-                //-------------------
-
-
-
-
-
-
-    });
-
-}
-
-    public List<Mastery> getListMastery(String value){
-        List<Mastery> masteries;
-        for(MasteryPage e: pages){
-            if(e.getName().equalsIgnoreCase(value)){
-                 masteries = e.getMasteries();
-                return masteries;
-            }
-        }
-        return null;
 
     }
 }//class
