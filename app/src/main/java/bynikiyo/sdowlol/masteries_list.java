@@ -89,7 +89,7 @@ public class masteries_list extends AppCompatActivity {
 
                 }
                 //------------------------------------------------------------------------
-
+                listaAndroid.setVisibility(View.INVISIBLE);
                 flipper.setVisibility(View.VISIBLE);
 
                 flipper.setOnTouchListener(new View.OnTouchListener() {

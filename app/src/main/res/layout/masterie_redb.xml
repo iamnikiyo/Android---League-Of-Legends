@@ -1,216 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:visibility="visible"
     android:baselineAligned="false"
     android:weightSum="1"
     android:orientation="horizontal">
 
-    <TableLayout
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:stretchColumns="3"
+        android:id="@+id/bg"
         android:background="@drawable/m_redb"
-        android:padding="20dp"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center_horizontal">
 
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center">
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:stretchColumns="3"
+            android:nestedScrollingEnabled="true"
+            android:padding="5dp">
 
-            <LinearLayout
-                android:orientation="horizontal"
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:layout_gravity="center">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/fury"
-                    android:layout_column="0"
-                    android:layout_marginRight="80dp"
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
 
-                    />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fury"
+                        android:layout_column="0"
+                        android:layout_marginRight="80dp"
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/sorcery"
-                    android:layout_column="3"
+                        />
 
-                    />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sorcery"
+                        android:layout_column="3"
 
-        </TableRow>
+                        />
+                </LinearLayout>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            >
+            </TableRow>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:layout_gravity="center"
-
+                android:layout_marginTop="20dp"
                 >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/dobleSword"
-                    android:layout_column="0"
-                    android:layout_marginRight="30dp" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/feast"
-                    android:layout_column="3" />
-            </LinearLayout>
+                    >
 
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dobleSword"
+                        android:layout_column="0"
+                        android:layout_marginRight="30dp" />
 
-            <LinearLayout
-                android:orientation="horizontal"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/feast"
+                        android:layout_column="3" />
+                </LinearLayout>
+
+            </TableRow>
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:layout_gravity="center"
-
+                android:layout_marginTop="20dp"
                 >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/vampirism"
-                    android:layout_column="0"
-                    android:layout_marginRight="80dp" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/naturalTalent"
-                    android:layout_column="3" />
-            </LinearLayout>
+                    >
 
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/vampirism"
+                        android:layout_column="0"
+                        android:layout_marginRight="80dp" />
 
-            <LinearLayout
-                android:orientation="horizontal"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/naturalTalent"
+                        android:layout_column="3" />
+                </LinearLayout>
+
+            </TableRow>
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:layout_gravity="center"
-
+                android:layout_marginTop="20dp"
                 >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bHunter"
-                    android:layout_column="0"
-                    android:layout_marginRight="30dp" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/opresor"
-                    android:layout_column="3" />
-            </LinearLayout>
+                    >
 
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bHunter"
+                        android:layout_column="0"
+                        android:layout_marginRight="30dp" />
 
-            <LinearLayout
-                android:orientation="horizontal"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/opresor"
+                        android:layout_column="3" />
+                </LinearLayout>
+
+            </TableRow>
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:layout_gravity="center"
-
+                android:layout_marginTop="20dp"
                 >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Bblow"
-                    android:layout_column="0"
-                    android:layout_marginRight="30dp" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Pircing"
-                    android:layout_column="3" />
-            </LinearLayout>
+                    >
 
-        </TableRow>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Bblow"
+                        android:layout_column="0"
+                        android:layout_marginRight="30dp" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Pircing"
+                        android:layout_column="3" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:layout_gravity="center"
-
+                android:layout_marginTop="20dp"
                 >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/warlord"
-                    android:layout_column="0"
-                    android:layout_marginRight="50dp" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/fervor"
-                    android:layout_column="0"
-                    android:layout_marginRight="50dp" />
+                    >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/deadTouch"
-                    android:layout_column="3" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/warlord"
+                        android:layout_column="0"
+                        android:layout_marginRight="50dp" />
 
-        </TableRow>
-    </TableLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fervor"
+                        android:layout_column="0"
+                        android:layout_marginRight="50dp" />
 
-</LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/deadTouch"
+                        android:layout_column="3" />
+                </LinearLayout>
+
+            </TableRow>
+        </TableLayout>
+
+
+    </LinearLayout>
+</FrameLayout>
