@@ -150,6 +150,8 @@ public class masteries_list extends AppCompatActivity {
 
     public void initializeImagesView(){
 
+        // Red Page --------------------------------------------
+
         ImageView m6111 = (ImageView) findViewById(R.id.fury);
         ImageView m6114 = (ImageView) findViewById(R.id.sorcery);
         ImageView m6121 = (ImageView) findViewById(R.id.dobleSword);
@@ -164,6 +166,21 @@ public class masteries_list extends AppCompatActivity {
         ImageView m6162 = (ImageView) findViewById(R.id.fervor);
         ImageView m6164 = (ImageView) findViewById(R.id.deadTouch);
 
+        // Blue Page --------------------------------------------
+        ImageView m6311 = (ImageView) findViewById(R.id.wanderer);
+        ImageView m6312 = (ImageView) findViewById(R.id.savagery);
+        ImageView m6321 = (ImageView) findViewById(R.id.runic);
+        ImageView m6322 = (ImageView) findViewById(R.id.secret);
+        ImageView m6323 = (ImageView) findViewById(R.id.assasin);
+        ImageView m6331 = (ImageView) findViewById(R.id.merciless);
+        ImageView m6332 = (ImageView) findViewById(R.id.meditation);
+        ImageView m6342 = (ImageView) findViewById(R.id.bandit);
+        ImageView m6343 = (ImageView) findViewById(R.id.dangerous);
+        ImageView m6351 = (ImageView) findViewById(R.id.precision);
+        ImageView m6352 = (ImageView) findViewById(R.id.intelli);
+        ImageView m6361 = (ImageView) findViewById(R.id.storm);
+        ImageView m6362 = (ImageView) findViewById(R.id.thunderlord);
+        ImageView m6363 = (ImageView) findViewById(R.id.windspeaker);
         mapaMaestrias = new HashMap();
 
         mapaMaestrias.put(6111,m6111);
@@ -179,6 +196,21 @@ public class masteries_list extends AppCompatActivity {
         mapaMaestrias.put(6161,m6161);
         mapaMaestrias.put(6162,m6162);
         mapaMaestrias.put(6164,m6164);
+
+        mapaMaestrias.put(6311,m6311);
+        mapaMaestrias.put(6312,m6312);
+        mapaMaestrias.put(6321,m6321);
+        mapaMaestrias.put(6322,m6322);
+        mapaMaestrias.put(6323,m6323);
+        mapaMaestrias.put(6331,m6331);
+        mapaMaestrias.put(6332,m6332);
+        mapaMaestrias.put(6342,m6342);
+        mapaMaestrias.put(6343,m6343);
+        mapaMaestrias.put(6351,m6351);
+        mapaMaestrias.put(6352,m6352);
+        mapaMaestrias.put(6361,m6361);
+        mapaMaestrias.put(6362,m6362);
+        mapaMaestrias.put(6363,m6363);
 
 
 

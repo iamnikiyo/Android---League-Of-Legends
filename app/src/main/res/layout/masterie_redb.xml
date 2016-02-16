@@ -49,6 +49,7 @@
                         android:layout_column="0"
                         android:layout_marginRight="80dp"
 
+
                         />
 
                     <ImageView
