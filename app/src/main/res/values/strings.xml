@@ -5,4 +5,7 @@
     <string name="name">Ej: Kronen</string>
     <string name="title_activity_prueba_masteries">pruebaMasteries</string>
     <string name="title_activity_masteries_list">masteries_list</string>
+    <string name="title_activity_about">about</string>
+    <string name="title_activity_champion_info">championInfo</string>
+    <string name="title_activity_free_to_play">freeToPlay</string>
 </resources>

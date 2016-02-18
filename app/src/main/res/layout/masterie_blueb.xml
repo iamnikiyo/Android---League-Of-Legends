@@ -90,6 +90,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/secret"
+                        android:layout_marginRight="30dp"
+
                         android:layout_column="3" />
 
                     <ImageView
@@ -183,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/precision"
                         android:layout_column="0"
-                        android:layout_marginRight="30dp" />
+                        android:layout_marginRight="80dp" />
 
                     <ImageView
                         android:layout_width="wrap_content"

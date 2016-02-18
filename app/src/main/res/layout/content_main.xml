@@ -19,7 +19,7 @@
         android:layout_alignParentStart="false"
         android:layout_alignParentTop="false"
         android:layout_alignWithParentIfMissing="false"
-        >
+        android:id="@+id/linearLayout">
 
         <Button
             android:layout_width="200dp"
@@ -28,14 +28,24 @@
             android:id="@+id/buttonSummoner"
             android:layout_gravity="center_horizontal"
             android:textSize="16dp"
-            android:onClick=""
+
             />
         <Button
             android:layout_height="wrap_content"
             android:layout_width="200dp"
             android:text="Champion INFO"
             android:id="@+id/infoChampion"
+            android:textSize="16dp"
             android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="About"
+            android:id="@+id/aboutButton"
+            android:textSize="16dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout" />
 
     </LinearLayout>
 

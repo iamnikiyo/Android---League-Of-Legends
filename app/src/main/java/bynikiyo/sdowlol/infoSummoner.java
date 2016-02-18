@@ -51,13 +51,6 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        /**
-         * Setting toolbar name on create
-         */
-
-
-
-
 
         getSupportActionBar().setTitle("Information of Summoner");
         /**
@@ -65,14 +58,9 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
          */
         region = (Spinner) findViewById(R.id.spinner);
 
-
-
                 adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,Region.getArrayRegion());
                 adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 region.setAdapter(adaptador);
-
-
-
 
         /**
          * Setting onclick sending button
@@ -152,9 +140,7 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
                         summoners = api.getSummonersByName(Region.GLOBAL, summonerName.getText().toString());
                         break;
 
-
                 }
-
 
             } catch (RiotApiException e) {
                 e.printStackTrace();
@@ -167,9 +153,6 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
 
             buttonMasteries.setOnClickListener(this);
 
-
-
-
             adaptador=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, summoner.getDataString());
 
             lista.setAdapter(adaptador);
@@ -179,13 +162,15 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
                 alerta.setTitle("Error");
                 alerta.setMessage("Wrong summoner name");
                 alerta.show();
+                    Intent d = new Intent(this, infoSummoner.class);
+                    startActivity(d);
             }
+
         }// Fin envioClick
 
         if(v.getId() == R.id.buttonMasteries){
             //Define la actividad
             Intent i = new Intent(this, masteries_list.class);
-                   // i.putExtra("summonerName",summoner.getName());
                     i.putExtra("summonerName",summonerName.getText().toString());
                     i.putExtra("region",reg);
             //Inicia la actividad

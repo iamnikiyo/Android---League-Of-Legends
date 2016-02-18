@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+        private Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +28,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         Button infoSummoner = (Button) findViewById(R.id.buttonSummoner);
+        Button about = (Button) findViewById(R.id.aboutButton);
+        Button champions = (Button) findViewById(R.id.infoChampion);
 
         infoSummoner.setOnClickListener(this);
+        about.setOnClickListener(this);
+        champions.setOnClickListener(this);
     }
     public void onClick(View v) {
         //Define la actividad
-        Intent i = new Intent(this, infoSummoner.class);
+        if(v.getId() == R.id.buttonSummoner) {
+             i = new Intent(this, infoSummoner.class);
+        }else if(v.getId() == R.id.aboutButton){
+            i = new Intent(this, about.class);
+        }else if (v.getId() == R.id.infoChampion){
+            i = new Intent(this,championInfo.class);
 
-        //Inicia la actividad
-        startActivity(i);
+        }
+        try {
+            startActivity(i);
+        }catch(NullPointerException ex){
 
+            Log.d("Intent NullPointer", "Intent = null");
+        }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -47,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

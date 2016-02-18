@@ -177,7 +177,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/Bblow"
                         android:layout_column="0"
-                        android:layout_marginRight="30dp" />
+                        android:layout_marginRight="80dp" />
 
                     <ImageView
                         android:layout_width="wrap_content"

@@ -22,10 +22,10 @@
         <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
 
 
-
-
     </style>
-    <style name="AppTheme.PopupOverlay"/>
-    <style name="AppTheme.AppBarOverlay"/>
+
+    <style name="AppTheme.PopupOverlay" />
+
+    <style name="AppTheme.AppBarOverlay" />
 
 </resources>

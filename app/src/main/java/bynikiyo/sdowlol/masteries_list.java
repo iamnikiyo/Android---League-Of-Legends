@@ -105,13 +105,13 @@ public class masteries_list extends AppCompatActivity {
                                 float distance = init_x - event.getX();
 
                                 if (distance < 0) {
+                                    flipper.showNext();
 
-                                    flipper.showPrevious();
                                 }
 
                                 if (distance > 0) {
+                                    flipper.showPrevious();
 
-                                    flipper.showNext();
                                 }
                             default:
                                 break;
@@ -181,6 +181,23 @@ public class masteries_list extends AppCompatActivity {
         ImageView m6361 = (ImageView) findViewById(R.id.storm);
         ImageView m6362 = (ImageView) findViewById(R.id.thunderlord);
         ImageView m6363 = (ImageView) findViewById(R.id.windspeaker);
+        // Green Page --------------------------------------------
+        ImageView m6211 = (ImageView) findViewById(R.id.recovery);
+        ImageView m6212 = (ImageView) findViewById(R.id.unyiel);
+        ImageView m6221 = (ImageView) findViewById(R.id.explorer);
+        ImageView m6223 = (ImageView) findViewById(R.id.tough);
+        ImageView m6231 = (ImageView) findViewById(R.id.rArmor);
+        ImageView m6232 = (ImageView) findViewById(R.id.veteran);
+        ImageView m6241 = (ImageView) findViewById(R.id.insight);
+        ImageView m6242 = (ImageView) findViewById(R.id.perseverance);
+        ImageView m6251 = (ImageView) findViewById(R.id.swift);
+        ImageView m6252 = (ImageView) findViewById(R.id.legen);
+        ImageView m6261 = (ImageView) findViewById(R.id.grasp);
+        ImageView m6262 = (ImageView) findViewById(R.id.strengthAge);
+        ImageView m6263 = (ImageView) findViewById(R.id.bondStone);
+
+
+
         mapaMaestrias = new HashMap();
 
         mapaMaestrias.put(6111,m6111);
@@ -212,7 +229,19 @@ public class masteries_list extends AppCompatActivity {
         mapaMaestrias.put(6362,m6362);
         mapaMaestrias.put(6363,m6363);
 
-
+        mapaMaestrias.put(6211,m6211);
+        mapaMaestrias.put(6212,m6212);
+        mapaMaestrias.put(6221,m6221);
+        mapaMaestrias.put(6223,m6223);
+        mapaMaestrias.put(6231,m6231);
+        mapaMaestrias.put(6232,m6232);
+        mapaMaestrias.put(6241,m6241);
+        mapaMaestrias.put(6242,m6242);
+        mapaMaestrias.put(6251,m6251);
+        mapaMaestrias.put(6252,m6252);
+        mapaMaestrias.put(6261,m6261);
+        mapaMaestrias.put(6262,m6262);
+        mapaMaestrias.put(6264,m6263);
 
 
 
@@ -230,6 +259,36 @@ public class masteries_list extends AppCompatActivity {
         m6162.setImageResource(R.drawable.m_gray_6162);
         m6164.setImageResource(R.drawable.m_gray_6164);
 
+
+
+        m6311.setImageResource(R.drawable.m_gray_6311);
+        m6312.setImageResource(R.drawable.m_gray_6312);
+        m6321.setImageResource(R.drawable.m_gray_6321);
+        m6322.setImageResource(R.drawable.m_gray_6322);
+        m6323.setImageResource(R.drawable.m_gray_6323);
+        m6331.setImageResource(R.drawable.m_gray_6331);
+        m6332.setImageResource(R.drawable.m_gray_6332);
+        m6342.setImageResource(R.drawable.m_gray_6342);
+        m6343.setImageResource(R.drawable.m_gray_6343);
+        m6351.setImageResource(R.drawable.m_gray_6351);
+        m6352.setImageResource(R.drawable.m_gray_6352);
+        m6361.setImageResource(R.drawable.m_gray_6361);
+        m6362.setImageResource(R.drawable.m_gray_6362);
+        m6363.setImageResource(R.drawable.m_gray_6363);
+
+        m6211.setImageResource(R.drawable.m_gray_6211);
+        m6212.setImageResource(R.drawable.m_gray_6212);
+        m6221.setImageResource(R.drawable.m_gray_6221);
+        m6223.setImageResource(R.drawable.m_gray_6223);
+        m6231.setImageResource(R.drawable.m_gray_6231);
+        m6232.setImageResource(R.drawable.m_gray_6232);
+        m6241.setImageResource(R.drawable.m_gray_6241);
+        m6242.setImageResource(R.drawable.m_gray_6242);
+        m6251.setImageResource(R.drawable.m_gray_6251);
+        m6252.setImageResource(R.drawable.m_gray_6252);
+        m6261.setImageResource(R.drawable.m_gray_6261);
+        m6262.setImageResource(R.drawable.m_gray_6262);
+        m6263.setImageResource(R.drawable.m_gray_6263);
     }
 
     ImageView getMasteryImageView(int number){
