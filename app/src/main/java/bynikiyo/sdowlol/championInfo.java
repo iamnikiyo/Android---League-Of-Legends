@@ -1,5 +1,6 @@
 package bynikiyo.sdowlol;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,8 +31,9 @@ public class championInfo extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.freeRotationButton){
-            
-
+            Intent i = new Intent(this,freeToPlay.class);
+            startActivity(i);
         }
+
     }
 }
