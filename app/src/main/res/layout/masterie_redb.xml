@@ -90,7 +90,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/feast"
-                        android:layout_column="3" />
+                        android:layout_column="3"
+                        android:layout_marginRight="30dp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/weakness"
+                        android:layout_column="3"
+                        />
                 </LinearLayout>
 
             </TableRow>

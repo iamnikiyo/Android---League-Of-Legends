@@ -156,6 +156,7 @@ public class masteries_list extends AppCompatActivity {
         ImageView m6114 = (ImageView) findViewById(R.id.sorcery);
         ImageView m6121 = (ImageView) findViewById(R.id.dobleSword);
         ImageView m6122 = (ImageView) findViewById(R.id.feast);
+        ImageView m6123 = (ImageView) findViewById(R.id.weakness);
         ImageView m6131 = (ImageView) findViewById(R.id.vampirism);
         ImageView m6134 = (ImageView) findViewById(R.id.naturalTalent);
         ImageView m6141 = (ImageView) findViewById(R.id.bHunter);
@@ -204,6 +205,7 @@ public class masteries_list extends AppCompatActivity {
         mapaMaestrias.put(6114,m6114);
         mapaMaestrias.put(6121,m6121);
         mapaMaestrias.put(6122,m6122);
+        mapaMaestrias.put(6123,m6123);
         mapaMaestrias.put(6131,m6131);
         mapaMaestrias.put(6134,m6134);
         mapaMaestrias.put(6141,m6141);
@@ -249,6 +251,7 @@ public class masteries_list extends AppCompatActivity {
         m6114.setImageResource(R.drawable.m_gray_6114);
         m6121.setImageResource(R.drawable.m_gray_6121);
         m6122.setImageResource(R.drawable.m_gray_6122);
+        m6123.setImageResource(R.drawable.m_gray_6123);
         m6131.setImageResource(R.drawable.m_gray_6131);
         m6134.setImageResource(R.drawable.m_gray_6134);
         m6141.setImageResource(R.drawable.m_gray_6141);
