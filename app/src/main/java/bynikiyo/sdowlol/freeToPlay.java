@@ -1,5 +1,6 @@
 package bynikiyo.sdowlol;
 
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -37,6 +39,7 @@ public class freeToPlay extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         getSupportActionBar().setTitle("FREE ROTATION");
+
 
 
         SliderLayout sliderShow = (SliderLayout) findViewById(R.id.slider);

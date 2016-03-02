@@ -13,6 +13,8 @@
         android:layout_height="match_parent"
         android:id="@+id/bg"
         android:background="@drawable/m_redb"
+        android:adjustViewBounds="false"
+        android:visibility="visible"
         android:scaleType="fitXY" />
 
     <LinearLayout

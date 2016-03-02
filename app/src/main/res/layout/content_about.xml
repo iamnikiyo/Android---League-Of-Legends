@@ -22,5 +22,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/logo"
             android:layout_gravity="center|top" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="SdOw LoL"
+            android:id="@+id/appName"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="App developed by nikiyoDev."
+            android:id="@+id/appDesigned"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You can find the project on: "
+            android:id="@+id/GitHub"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textSize="17dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="http://GitHub.com/bynikiyo"
+            android:layout_marginTop="10dp"
+            android:id="@+id/GitHubName"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You can contact with me on: "
+            android:id="@+id/appContact"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textSize="17dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="bynikiyodesigns@gmail.com"
+            android:layout_marginTop="10dp"
+            android:id="@+id/appEmail"
+            android:textAlignment="center" />
     </LinearLayout>
 </RelativeLayout>
