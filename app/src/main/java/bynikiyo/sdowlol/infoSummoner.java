@@ -3,6 +3,9 @@ package bynikiyo.sdowlol;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -13,18 +16,24 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import net.rithms.riot.constant.Region;
+import net.rithms.riot.dto.League.League;
+import net.rithms.riot.dto.League.LeagueEntry;
 import net.rithms.riot.dto.Summoner.Summoner;
 import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
 import com.google.gson.*;
 import android.app.ListActivity;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -35,7 +44,7 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
     private TextView info,regionText;
     private Button buttonMasteries,buttonRunes;
     private View horizontalButtons;
-    private ListView lista;
+
     private ArrayAdapter<String> adaptador;
 
     private Spinner region;
@@ -87,7 +96,8 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
             View vista = (View) findViewById(R.id.vista);
             vista.setVisibility(View.VISIBLE);
             buttonMasteries = (Button) findViewById(R.id.buttonMasteries);
-            lista = (ListView) findViewById(R.id.listView);
+
+
 
             region.setVisibility(View.INVISIBLE);
             regionText = (TextView) findViewById(R.id.RegionText);
@@ -108,36 +118,47 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
                 switch(reg){
                     case "EUW" :
                         summoners = api.getSummonersByName(Region.EUW, summonerName.getText().toString());
+                        api.setRegion(Region.EUW);
                         break;
                     case "NA":
                         summoners = api.getSummonersByName(Region.NA, summonerName.getText().toString());
+                        api.setRegion(Region.NA);
                         break;
                     case "BR":
                         summoners = api.getSummonersByName(Region.BR, summonerName.getText().toString());
+                        api.setRegion(Region.BR);
                         break;
                     case "LAN":
                         summoners = api.getSummonersByName(Region.LAN, summonerName.getText().toString());
+                        api.setRegion(Region.LAN);
                         break;
                     case "KR":
                         summoners = api.getSummonersByName(Region.KR, summonerName.getText().toString());
+                        api.setRegion(Region.KR);
                         break;
                     case "LAS":
                         summoners = api.getSummonersByName(Region.LAS, summonerName.getText().toString());
+                        api.setRegion(Region.LAS);
                         break;
                     case "OCE":
                         summoners = api.getSummonersByName(Region.OCE, summonerName.getText().toString());
+                        api.setRegion(Region.OCE);
                         break;
                     case "PBE":
                         summoners = api.getSummonersByName(Region.PBE, summonerName.getText().toString());
+                        api.setRegion(Region.PBE);
                         break;
                     case "RU":
+                        api.setRegion(Region.RU);
                         summoners = api.getSummonersByName(Region.RU, summonerName.getText().toString());
                         break;
                     case "TR":
                         summoners = api.getSummonersByName(Region.TR, summonerName.getText().toString());
+                        api.setRegion(Region.TR);
                         break;
                     case "GLOBAL":
                         summoners = api.getSummonersByName(Region.GLOBAL, summonerName.getText().toString());
+                        api.setRegion(Region.GLOBAL);
                         break;
 
                 }
@@ -152,11 +173,31 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
 
 
             buttonMasteries.setOnClickListener(this);
+            TextView summonerNB = (TextView) findViewById(R.id.summonerNameB);
+                summonerNB.setText(summoner.getName());
 
-            adaptador=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, summoner.getDataString());
 
-            lista.setAdapter(adaptador);
-            getSupportActionBar().setTitle(summoner.getName());
+            ImageView logo = (ImageView) findViewById(R.id.logoSB);
+                String nombreImagen = "i" + String.valueOf(summoner.getProfileIconId());
+
+                int res_imagen = this.getResources().getIdentifier("drawable/" + nombreImagen, null, this.getPackageName());
+                logo.setImageResource(res_imagen);
+            TextView level = (TextView) findViewById(R.id.level);
+
+                level.setText("Level: "+String.valueOf(summoner.getSummonerLevel()));
+
+               try {
+                TextView elo = (TextView) findViewById(R.id.rank);
+                   elo.setText(api.getLeagueBySummoner(api.getRegion(),summoner.getId()).get(0).getTier()+ " " + api.getLeagueEntryBySummoner(api.getRegion(),summoner.getId()).get(0).getEntries().get(0).getDivision());
+
+
+
+                } catch (RiotApiException e) {
+                    e.printStackTrace();
+                }
+
+
+                getSupportActionBar().setTitle(summoner.getName());
             }catch (NullPointerException e){
                 AlertDialog alerta = new AlertDialog.Builder(this).create();
                 alerta.setTitle("Error");
