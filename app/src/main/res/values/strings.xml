@@ -8,4 +8,5 @@
     <string name="title_activity_about">about</string>
     <string name="title_activity_champion_info">championInfo</string>
     <string name="title_activity_free_to_play">freeToPlay</string>
+    <string name="title_activity_activity__runes">activity_Runes</string>
 </resources>

@@ -42,6 +42,10 @@
         <activity
             android:name=".freeToPlay"
             android:label="@string/title_activity_free_to_play"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity_Runes"
+            android:label="@string/title_activity_activity__runes"
             android:theme="@style/AppTheme"></activity>
     </application>
 

@@ -51,6 +51,7 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
     private String reg;
     private Summoner summoner;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,83 +97,68 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
             View vista = (View) findViewById(R.id.vista);
             vista.setVisibility(View.VISIBLE);
             buttonMasteries = (Button) findViewById(R.id.buttonMasteries);
-
-
-
+            buttonRunes = (Button) findViewById(R.id.buttonRunes);
             region.setVisibility(View.INVISIBLE);
             regionText = (TextView) findViewById(R.id.RegionText);
             regionText.setVisibility(View.INVISIBLE);
             // Obtencion de los datos
-
             /**
              * Obtencion de la region del spinner
              */
-
                 reg = region.getSelectedItem().toString().toUpperCase();
 
             // Set de los datos.
             RiotApi api = new RiotApi("64a3b34b-e65d-4867-adb6-47e33cf2dfc3");
 
-            Map<String, Summoner> summoners = null;
-            try {
                 switch(reg){
                     case "EUW" :
-                        summoners = api.getSummonersByName(Region.EUW, summonerName.getText().toString());
                         api.setRegion(Region.EUW);
                         break;
                     case "NA":
-                        summoners = api.getSummonersByName(Region.NA, summonerName.getText().toString());
                         api.setRegion(Region.NA);
                         break;
                     case "BR":
-                        summoners = api.getSummonersByName(Region.BR, summonerName.getText().toString());
                         api.setRegion(Region.BR);
                         break;
                     case "LAN":
-                        summoners = api.getSummonersByName(Region.LAN, summonerName.getText().toString());
                         api.setRegion(Region.LAN);
                         break;
                     case "KR":
-                        summoners = api.getSummonersByName(Region.KR, summonerName.getText().toString());
                         api.setRegion(Region.KR);
                         break;
                     case "LAS":
-                        summoners = api.getSummonersByName(Region.LAS, summonerName.getText().toString());
                         api.setRegion(Region.LAS);
                         break;
                     case "OCE":
-                        summoners = api.getSummonersByName(Region.OCE, summonerName.getText().toString());
                         api.setRegion(Region.OCE);
                         break;
                     case "PBE":
-                        summoners = api.getSummonersByName(Region.PBE, summonerName.getText().toString());
                         api.setRegion(Region.PBE);
                         break;
                     case "RU":
                         api.setRegion(Region.RU);
-                        summoners = api.getSummonersByName(Region.RU, summonerName.getText().toString());
                         break;
                     case "TR":
-                        summoners = api.getSummonersByName(Region.TR, summonerName.getText().toString());
                         api.setRegion(Region.TR);
                         break;
                     case "GLOBAL":
-                        summoners = api.getSummonersByName(Region.GLOBAL, summonerName.getText().toString());
                         api.setRegion(Region.GLOBAL);
                         break;
 
                 }
 
-            } catch (RiotApiException e) {
-                e.printStackTrace();
-            }
-                summoner = null;
             try {
-                summoner = summoners.get(summonerName.getText().toString());
+                summoner = null;
+
+                try {
+                    summoner = api.getSummonerByName(api.getRegion(),summonerName.getText().toString().replace(" ",""));
+                } catch (RiotApiException e) {
+                    e.printStackTrace();
+                }
 
 
-
-            buttonMasteries.setOnClickListener(this);
+                buttonMasteries.setOnClickListener(this);
+                buttonRunes.setOnClickListener(this);
             TextView summonerNB = (TextView) findViewById(R.id.summonerNameB);
                 summonerNB.setText(summoner.getName());
 
@@ -189,14 +175,9 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
                try {
                 TextView elo = (TextView) findViewById(R.id.rank);
                    elo.setText(api.getLeagueBySummoner(api.getRegion(),summoner.getId()).get(0).getTier()+ " " + api.getLeagueEntryBySummoner(api.getRegion(),summoner.getId()).get(0).getEntries().get(0).getDivision());
-
-
-
                 } catch (RiotApiException e) {
                     e.printStackTrace();
                 }
-
-
                 getSupportActionBar().setTitle(summoner.getName());
             }catch (NullPointerException e){
                 AlertDialog alerta = new AlertDialog.Builder(this).create();
@@ -214,9 +195,21 @@ public class infoSummoner extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this, masteries_list.class);
                     i.putExtra("summonerName",summonerName.getText().toString());
                     i.putExtra("region",reg);
+
             //Inicia la actividad
             startActivity(i);
 
+
+        }
+
+        if(v.getId() == R.id.buttonRunes){
+
+            //Define la actividad
+            Intent i = new Intent(this, activity_Runes.class);
+            i.putExtra("summonerId",summoner.getId());
+            i.putExtra("region",reg);
+            //Inicia la actividad
+            startActivity(i);
 
         }
 

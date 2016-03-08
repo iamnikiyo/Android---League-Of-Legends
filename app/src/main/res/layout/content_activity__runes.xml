@@ -9,23 +9,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="bynikiyo.sdowlol.championInfo"
-    tools:showIn="@layout/activity_champion_info">
+    tools:context="bynikiyo.sdowlol.activity_Runes"
+    tools:showIn="@layout/activity_activity__runes">
 
-    <ImageView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/logo"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true" />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="FREE ROTATION"
-        android:id="@+id/freeRotationButton"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="153dp" />
-
+        android:id="@+id/listRunes" />
 </RelativeLayout>
