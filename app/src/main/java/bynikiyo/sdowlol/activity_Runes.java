@@ -15,6 +15,9 @@ import android.widget.ListView;
 import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
 import net.rithms.riot.constant.Region;
+import net.rithms.riot.constant.staticdata.RuneData;
+import net.rithms.riot.dto.Static.Image;
+import net.rithms.riot.dto.Static.Rune;
 import net.rithms.riot.dto.Summoner.RunePage;
 import net.rithms.riot.dto.Summoner.RunePages;
 import net.rithms.riot.dto.Summoner.RuneSlot;
@@ -29,6 +32,7 @@ public class activity_Runes extends AppCompatActivity {
         private ListView list;
         private ArrayList<String> arrayNamePages;
         private Map<Integer,Integer> mapIdRunes = null;
+        private RiotApi api;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +52,7 @@ public class activity_Runes extends AppCompatActivity {
          */
         getSupportActionBar().setTitle("Runes Pages");
 
-        RiotApi api = new RiotApi("64a3b34b-e65d-4867-adb6-47e33cf2dfc3");
+         api = new RiotApi("64a3b34b-e65d-4867-adb6-47e33cf2dfc3");
         switch(reg){
             case "EUW" :
                 api.setRegion(Region.EUW);
@@ -114,15 +118,38 @@ public class activity_Runes extends AppCompatActivity {
                     }
 
                     for(RuneSlot s: slotR){
-                        Log.d("RUNE ID: ", String.valueOf(s.getRuneId()));
+
 
                         if(mapIdRunes.get(s.getRuneId()) == null){
-                            mapIdRunes.put(s.getRuneId(),0);
+                            mapIdRunes.put(s.getRuneId(),1);
                         } else {
 
+                            int count = mapIdRunes.get(s.getRuneId());
+                            mapIdRunes.put(s.getRuneId(),count+1);
+                        }
+
+                    }
+                    for (int i : mapIdRunes.values()){
+
+                        Log.d("INFO", String.valueOf(i));
+
+                    }
+
+                    for (int i : mapIdRunes.keySet())
+                    {
+
+                        try {
+
+                                Log.d("HOLIWI",api.getDataRune(i).getName());
+                        } catch (RiotApiException e) {
+                            e.printStackTrace();
+                        } catch (NullPointerException e){
+                            e.printStackTrace();
 
                         }
                     }
+
+
                 }
             });
         } catch (RiotApiException e) {

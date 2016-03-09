@@ -40,8 +40,6 @@ public class freeToPlay extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
         getSupportActionBar().setTitle("FREE ROTATION");
 
-
-
         SliderLayout sliderShow = (SliderLayout) findViewById(R.id.slider);
 
 
@@ -51,9 +49,6 @@ public class freeToPlay extends AppCompatActivity {
             ChampionList freeList = api.getFreeToPlayChampions();
 
             for (Champion ch : freeList.getChampions()){
-
-
-
                 String nombreImg = api.getDataChampion((int)ch.getId()).getName().toLowerCase() + "_0";
 
                 int res_imagen = freeToPlay.this.getResources().getIdentifier("drawable/" + nombreImg.replace(" ",""), null, freeToPlay.this.getPackageName());
