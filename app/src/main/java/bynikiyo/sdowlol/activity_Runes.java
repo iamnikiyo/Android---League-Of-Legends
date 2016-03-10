@@ -16,8 +16,10 @@ import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
 import net.rithms.riot.constant.Region;
 import net.rithms.riot.constant.staticdata.RuneData;
+import net.rithms.riot.constant.staticdata.RuneListData;
 import net.rithms.riot.dto.Static.Image;
 import net.rithms.riot.dto.Static.Rune;
+import net.rithms.riot.dto.Static.RuneList;
 import net.rithms.riot.dto.Summoner.RunePage;
 import net.rithms.riot.dto.Summoner.RunePages;
 import net.rithms.riot.dto.Summoner.RuneSlot;
@@ -109,53 +111,50 @@ public class activity_Runes extends AppCompatActivity {
                     list.setVisibility(View.GONE);
                     Set<RuneSlot> slotR = null;
                     mapIdRunes = new HashMap<Integer, Integer>();
-                    for(RunePage r : setRunnes){
-                        if(r.getName().equalsIgnoreCase(adapter.getItem(position).toString())){
+                    for (RunePage r : setRunnes) {
+                        if (r.getName().equalsIgnoreCase(adapter.getItem(position).toString())) {
                             slotR = r.getSlots();
 
                         }
 
                     }
 
-                    for(RuneSlot s: slotR){
+                    for (RuneSlot s : slotR) {
 
 
-                        if(mapIdRunes.get(s.getRuneId()) == null){
-                            mapIdRunes.put(s.getRuneId(),1);
+                        if (mapIdRunes.get(s.getRuneId()) == null) {
+                            mapIdRunes.put(s.getRuneId(), 1);
                         } else {
 
                             int count = mapIdRunes.get(s.getRuneId());
-                            mapIdRunes.put(s.getRuneId(),count+1);
+                            mapIdRunes.put(s.getRuneId(), count + 1);
                         }
 
                     }
-                    for (int i : mapIdRunes.values()){
+                    for (int i : mapIdRunes.values()) {
 
                         Log.d("INFO", String.valueOf(i));
 
                     }
 
-                    for (int i : mapIdRunes.keySet())
-                    {
-
+                    for (int i : mapIdRunes.keySet()) {
                         try {
-
-                                Log.d("HOLIWI",api.getDataRune(i).getName());
+                            RuneList listaR = api.getDataRuneList(null, null, RuneListData.IMAGE); // <-- this line changed
+                            Rune rune = listaR.getData().get(String.valueOf(i));
+                            String path = rune.getImage().getFull();
+                            Log.d("IMAGE",path);
                         } catch (RiotApiException e) {
                             e.printStackTrace();
-                        } catch (NullPointerException e){
-                            e.printStackTrace();
-
                         }
+
                     }
-
-
                 }
             });
-        } catch (RiotApiException e) {
+
+
+         }catch (RiotApiException e){
             e.printStackTrace();
         }
-
     }
 
 }
