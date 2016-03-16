@@ -10,7 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
@@ -43,6 +47,8 @@ public class activity_Runes extends AppCompatActivity {
         setSupportActionBar(toolbar);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+        final RelativeLayout rLayout = (RelativeLayout) findViewById(R.id.rLayout);
+        final LinearLayout layout = (LinearLayout) findViewById(R.id.llayout);
         /**
          * Getting data from infoSummoner Activity
          */
@@ -136,18 +142,40 @@ public class activity_Runes extends AppCompatActivity {
                         Log.d("INFO", String.valueOf(i));
 
                     }
+                    LinearLayout ll = new LinearLayout(activity_Runes.this);
 
                     for (int i : mapIdRunes.keySet()) {
                         try {
                             RuneList listaR = api.getDataRuneList(null, null, RuneListData.IMAGE); // <-- this line changed
                             Rune rune = listaR.getData().get(String.valueOf(i));
-                            String path = rune.getImage().getFull();
-                            Log.d("IMAGE",path);
+                            String path = "r" + rune.getImage().getFull();
+                            Log.d("PATH",path);
+                            int res_imagen = activity_Runes.this.getResources().getIdentifier("drawable/" + path, null, activity_Runes.this.getPackageName());
+
+                            ll.setOrientation(LinearLayout.VERTICAL);
+                            LinearLayout ln = new LinearLayout(activity_Runes.this);
+                            ln.setOrientation(LinearLayout.HORIZONTAL);
+
+                            ImageView img = new ImageView(activity_Runes.this);
+                            img.setImageResource(res_imagen);
+
+                            TextView tx = new TextView(activity_Runes.this);
+                            tx.setText(rune.getName());
+                            ln.addView(img);
+                            ln.addView(tx);
+
+                            ll.addView(ln);
+
+
+
+
                         } catch (RiotApiException e) {
                             e.printStackTrace();
                         }
 
                     }
+
+                    rLayout.addView(ll);
                 }
             });
 
